@@ -1,26 +1,83 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalDependencies": [
-    "**/.env.*local"
-  ],
-  "tasks": {
+  "globalDependencies": ["**/.env.*local"],
+  "pipeline": {
     "build": {
-      "dependsOn": [
-        "^build"
-      ],
-      "outputs": [
-        ".next/**",
-        "!.next/cache/**"
-      ]
+      "dependsOn": ["^build"],
+      "outputs": [".next/**", "!.next/cache/**", "dist/**"]
     },
-    "lint": {
-      "dependsOn": [
-        "^lint"
-      ]
+    "clean": {
+      "cache": false
     },
     "dev": {
       "cache": false,
       "persistent": true
+    },
+    "lint": {
+      "cache": false
+    },
+    "lint:fix": {
+      "cache": false
+    },
+    "start": {
+      "dependsOn": ["^build"]
+    },
+    "db:check": {
+      "cache": false
+    },
+    "db:generate": {
+      "cache": false
+    },
+    "db:migrate": {
+      "cache": false
+    },
+    "db:push": {
+      "cache": false
+    },
+    "db:studio": {
+      "cache": false
+    },
+    "db:seed": {
+      "cache": false
+    },
+    "type-check": {
+      "cache": false
+    },
+    "blog#build": {
+      "dependsOn": ["^build"],
+      "outputs": [".next/**", "!.next/cache/**"],
+      "env": [
+        "ANALYZE",
+        "SPOTIFY_CLIENT_ID",
+        "SPOTIFY_CLIENT_SECRET",
+        "SPOTIFY_REFRESH_TOKEN",
+        "GOOGLE_API_KEY",
+        "GITHUB_TOKEN",
+        "WAKATIME_API_KEY",
+        "NEXTAUTH_SECRET",
+        "GOOGLE_CLIENT_ID",
+        "GOOGLE_CLIENT_SECRET",
+        "GITHUB_CLIENT_ID",
+        "GITHUB_CLIENT_SECRET",
+        "DATABASE_URL",
+        "IP_ADDRESS_SALT",
+        "DISCORD_WEBHOOK_URL",
+        "NEXT_PUBLIC_UMAMI_URL",
+        "NEXT_PUBLIC_UMAMI_WEBSITE_ID",
+        "RESEND_API_KEY",
+        "AUTHOR_EMAIL",
+        "NEXT_PUBLIC_FLAG_COMMENT",
+        "NEXT_PUBLIC_FLAG_AUTH",
+        "NEXT_PUBLIC_FLAG_STATS",
+        "NEXT_PUBLIC_FLAG_SPOTIFY",
+        "NEXT_PUBLIC_FLAG_ANALYTICS",
+        "NEXT_PUBLIC_FLAG_GUESTBOOK_NOTIFICATION",
+        "NEXT_PUBLIC_FLAG_LIKE_BUTTON",
+        "VERCEL_URL"
+      ]
+    },
+    "ui#build": {
+      "dependsOn": ["utils#build"]
     }
   }
 }

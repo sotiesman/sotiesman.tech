@@ -1,0 +1,38 @@
+{
+  "name": "@sotiesman/tailwind-config",
+  "version": "0.0.0",
+  "license": "EPL-2.0",
+  "author": "SadnessNetwork <me@sotiesman.tech> (https://github.com/SadnessNetwork/)",
+  "homepage": "https://github.com/SadnessNetwork/sotiesman-tech#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SadnessNetwork/sotiesman-tech.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SadnessNetwork/sotiesman-tech/issues"
+  },
+  "main": "tailwind.config.ts",
+  "files": [
+    "tailwind.config.ts"
+  ],
+  "scripts": {
+    "lint": "eslint . --max-warnings 0",
+    "lint:fix": "eslint --fix ."
+  },
+  "dependencies": {
+    "@tailwindcss/typography": "^0.5.10",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@sotiesman/eslint-config": "workspace:*",
+    "@sotiesman/tsconfig": "workspace:*",
+    "tailwindcss": "^3.4.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": "eslint --fix",
+    "*.{js,jsx,ts,tsx,json,md,mdx}": "prettier --cache --write"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://unpkg.com/@changesets/config@3.0.0/schema.json",
+  "access": "public",
+  "baseBranch": "main",
+  "changelog": [
+    "@changesets/changelog-github",
+    {
+      "repo": "SadnessNetwork/sotiesman-tech"
+    }
+  ],
+  "commit": false,
+  "fixed": [],
+  "ignore": ["blog", "@sdns/emails", "@sdns/mdx"],
+  "linked": [],
+  "updateInternalDependencies": "patch"
+}

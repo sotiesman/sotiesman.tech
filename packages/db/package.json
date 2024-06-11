@@ -1,0 +1,35 @@
+{
+  "private": true,
+  "name": "@sotiesman/db",
+  "version": "0.0.0",
+  "license": "EPL-2.0",
+  "main": "./src/index.ts",
+  "scripts": {
+    "clean": "rm -rf .turbo",
+    "db:check": "dotenv -e ../../.env.local -- drizzle-kit check",
+    "db:generate": "dotenv -e ../../.env.local -- drizzle-kit generate",
+    "db:migrate": "dotenv -e ../../.env.local -- tsx ./src/migrate.ts",
+    "db:push": "dotenv -e ../../.env.local -- drizzle-kit push",
+    "db:seed": "dotenv -e ../../.env.local -- tsx ./src/seed.ts",
+    "db:studio": "dotenv -e ../../.env.local -- drizzle-kit studio",
+    "lint": "eslint . --max-warnings 0",
+    "lint:fix": "eslint --fix .",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@libsql/client": "^0.6.0",
+    "@paralleldrive/cuid2": "^2.2.2",
+    "@sotiesman/env": "workspace:*",
+    "drizzle-orm": "^0.29.4"
+  },
+  "devDependencies": {
+    "@sotiesman/eslint-config": "workspace:*",
+    "@sotiesman/tsconfig": "workspace:*",
+    "@types/node": "^20.11.20",
+    "drizzle-kit": "^0.21.1"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": "eslint --fix",
+    "*.{js,jsx,ts,tsx,json,md,mdx}": "prettier --cache --write"
+  }
+}

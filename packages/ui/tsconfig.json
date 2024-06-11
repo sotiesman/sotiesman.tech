@@ -1,8 +1,6 @@
 {
-  "extends": "@repo/typescript-config/react-library.json",
-  "compilerOptions": {
-    "outDir": "dist"
-  },
-  "include": ["src"],
-  "exclude": ["node_modules", "dist"]
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "exclude": ["node_modules"],
+  "extends": "@sotiesman/tsconfig/react-library.json",
+  "include": ["**/*.ts", "**/*.tsx"]
 }
