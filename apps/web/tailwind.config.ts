@@ -1,5 +1,5 @@
-import sharedConfig from '@sdns/tailwind-config'
-import { type Config } from 'tailwindcss'
+import sharedConfig from '@sotiesman/tailwind-config';
+import { type Config } from 'tailwindcss';
 
 const config: Pick<Config, 'presets' | 'content' | 'darkMode' | 'theme'> = {
 	darkMode: 'class',
@@ -29,6 +29,6 @@ const config: Pick<Config, 'presets' | 'content' | 'darkMode' | 'theme'> = {
 			}
 		}
 	}
-}
+};
 
-export default config
+export default config;

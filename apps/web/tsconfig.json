@@ -3,12 +3,8 @@
 	"compilerOptions": {
 		"baseUrl": ".",
 		"paths": {
-			"@/*": [
-				"./src/*"
-			],
-			"~/*": [
-				"./public/*"
-			]
+			"@/*": ["./src/*"],
+			"~/*": ["./public/*"]
 		},
 		"plugins": [
 			{
@@ -16,10 +12,8 @@
 			}
 		]
 	},
-	"exclude": [
-		"node_modules"
-	],
-	"extends": "@sdns/tsconfig/nextjs.json",
+	"exclude": ["node_modules"],
+	"extends": "@sotiesman/tsconfig/nextjs.json",
 	"include": [
 		"next-env.d.ts",
 		"next.config.mjs",

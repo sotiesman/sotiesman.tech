@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url'
 
 const jiti = createJiti(fileURLToPath(import.meta.url))
 
-jiti('@sdns/env')
+jiti('@sotiesman/env')
 
 const withBundleAnalyzer = bundleAnalyzer({
 	enabled: process.env.ANALYZE === 'true'
@@ -17,12 +17,12 @@ const nextConfig = {
 	},
 
 	transpilePackages: [
-		'@sdns/db',
-		'@sdns/emails',
-		'@sdns/env',
-		'@sdns/mdx',
-		'@sdns/ui',
-		'@sdns/utils'
+		'@sotiesman/db',
+		'@sotiesman/emails',
+		'@sotiesman/env',
+		'@sotiesman/mdx',
+		'@sotiesman/ui',
+		'@sotiesman/utils'
 	],
 
 	images: {

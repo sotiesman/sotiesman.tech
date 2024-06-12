@@ -1,6 +1,6 @@
 {
 	"private": true,
-	"name": "custom-monorepo",
+	"name": "web-monorepo",
 	"license": "EPL-2.0",
 	"type": "module",
 	"scripts": {
