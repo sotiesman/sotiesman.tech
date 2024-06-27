@@ -25,16 +25,13 @@
     "jsdom": "^24.1.0",
     "knip": "^5.18.2",
     "lint-staged": "^15.2.6",
+    "next": "14.2.3",
     "prettier": "^3.3.2",
     "tsup": "^8.1.0",
     "tsx": "^4.15.2",
     "turbo": "^2.0.3",
     "typescript": "^5.4.5",
     "vitest": "^1.6.0"
-  },
-  "engines": {
-    "node": ">=18",
-    "pnpm": ">=8"
   },
   "license": "EPL-2.0",
   "lint-staged": {
@@ -76,8 +73,5 @@
     "type-check": "turbo type-check",
     "version": "changeset version"
   },
-  "type": "module",
-  "dependencies": {
-    "next.js": "^1.0.3"
-  }
+  "type": "module"
 }

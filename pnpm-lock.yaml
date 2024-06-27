@@ -7,10 +7,6 @@ settings:
 importers:
 
   .:
-    dependencies:
-      next.js:
-        specifier: ^1.0.3
-        version: 1.0.3
     devDependencies:
       '@changesets/changelog-github':
         specifier: ^0.5.0
@@ -72,6 +68,9 @@ importers:
       lint-staged:
         specifier: ^15.2.6
         version: 15.2.6
+      next:
+        specifier: 14.2.3
+        version: 14.2.3(@playwright/test@1.45.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       prettier:
         specifier: ^3.3.2
         version: 3.3.2
@@ -7573,9 +7572,6 @@ packages:
     peerDependencies:
       react: ^16.8 || ^17 || ^18
       react-dom: ^16.8 || ^17 || ^18
-
-  next.js@1.0.3:
-    resolution: {integrity: sha512-nosnT7Jh4ML3kzwG9MPW+SfBKuHoZEMcCWw5kxwMYXoxnADGzIxWl+TdDMcEZP6Xl/t8m/5uyVlA9SBkH2oh/w==}
 
   next@14.1.4:
     resolution: {integrity: sha512-1WTaXeSrUwlz/XcnhGTY7+8eiaFvdet5z9u3V2jb+Ek1vFo0VhHKSAIJvDWfQpttWjnyw14kBeq28TPq7bTeEQ==}
@@ -18004,8 +18000,6 @@ snapshots:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  next.js@1.0.3: {}
-
   next@14.1.4(@babel/core@7.24.5)(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@next/env': 14.1.4
@@ -19832,7 +19826,7 @@ snapshots:
   terser@5.31.1:
     dependencies:
       '@jridgewell/source-map': 0.3.6
-      acorn: 8.11.3
+      acorn: 8.12.0
       commander: 2.20.3
       source-map-support: 0.5.21
 
