@@ -76,5 +76,8 @@
     "type-check": "turbo type-check",
     "version": "changeset version"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "next.js": "^1.0.3"
+  }
 }
