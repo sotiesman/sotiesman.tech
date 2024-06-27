@@ -21,7 +21,7 @@ const Page = () => {
 
   return (
     <>
-     Kogda nado byde, dopishy a tak Chill guys <br />Made with ❤️ by sdnsdev AKA Sadness
+     Kogda nado byde, dopishy a tak Chill guys <br /> <br /><br /><br />Made with ❤️ by sdnsdev AKA Sadness
     </>
   )
 }
