@@ -45,7 +45,6 @@ export const env = createEnv({
 
     ...(flags.stats
       ? {
-          GOOGLE_API_KEY: z.string().min(1),
           GITHUB_TOKEN: z.string().min(1),
           WAKATIME_API_KEY: z.string().min(1)
         }
