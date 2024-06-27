@@ -1,28 +1,28 @@
 export type DocumentType = {
-  name: string
-  filePathPattern: string
-  fields?: FieldDefs
+	name: string
+	filePathPattern: string
+	fields?: FieldDefs
 }
 
 export type BaseFieldDef = {
-  name: string
-  type: 'string' | 'boolean' | 'list'
-  required?: boolean
+	name: string
+	type: 'string' | 'boolean' | 'list'
+	required?: boolean
 }
 
 export type StringFieldDef = BaseFieldDef & {
-  type: 'string'
-  fields?: FieldDefs
+	type: 'string'
+	fields?: FieldDefs
 }
 
 export type BooleanFieldDef = BaseFieldDef & {
-  type: 'boolean'
-  fields?: FieldDefs
+	type: 'boolean'
+	fields?: FieldDefs
 }
 
 export type ListFieldDef = BaseFieldDef & {
-  type: 'list'
-  fields: FieldDefs
+	type: 'list'
+	fields: FieldDefs
 }
 
 export type FieldDef = StringFieldDef | BooleanFieldDef | ListFieldDef
@@ -30,6 +30,6 @@ export type FieldDef = StringFieldDef | BooleanFieldDef | ListFieldDef
 export type FieldDefs = FieldDef[]
 
 export type MakeSourceOptions = {
-  contentDirPath: string
-  defs: DocumentType[]
+	contentDirPath: string
+	defs: DocumentType[]
 }

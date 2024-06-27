@@ -1,12 +1,12 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig",
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  },
-  "exclude": ["node_modules"],
-  "extends": "@sotiesman/tsconfig/react-library.json",
-  "include": ["**/*.ts", "**/*.tsx"]
+	"$schema": "https://json.schemastore.org/tsconfig",
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["./src/*"]
+		}
+	},
+	"exclude": ["node_modules"],
+	"extends": "@sdnsdev/tsconfig/react-library.json",
+	"include": ["**/*.ts", "**/*.tsx", "eslint.config.mjs"]
 }

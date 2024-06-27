@@ -7,6 +7,6 @@
     }
   },
   "exclude": ["node_modules"],
-  "extends": "@sotiesman/tsconfig/react-library.json",
-  "include": ["**/*.ts", "**/*.tsx"]
+  "extends": "@sdnsdev/tsconfig/react-library.json",
+  "include": ["**/*.ts", "**/*.tsx", "eslint.config.mjs"]
 }

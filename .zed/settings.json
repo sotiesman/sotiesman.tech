@@ -1,0 +1,87 @@
+// Zed settings
+{
+  // Editor
+  "active_pane_magnification": 2,
+  // AI
+  "assistant": {
+    "provider": {
+      "name": "openai",
+      "default_model": "gpt-4o",
+      "available_models": []
+    }
+  },
+  "auto_update": true,
+  // General
+  "autosave": false,
+  // Fonts
+  "buffer_font_family": "PragmataPro",
+  "buffer_font_size": 16,
+  "confirm_quit": true,
+  "format_on_save": {
+    "external": {
+      "command": "npx",
+      "arguments": [
+        "prettier",
+        "--ignore-unknown",
+        "--stdin-filepath",
+        "{buffer_path}"
+      ]
+    }
+  },
+  // Format
+  "formatter": "prettier",
+  "languages": {
+    "JavaScript": {
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true,
+        "source.organizeImports": true
+      },
+      "format_on_save": {
+        "external": {
+          "command": "prettier",
+          "arguments": ["--stdin-filepath", "{buffer_path}"]
+        }
+      }
+    },
+    "TypeScript": {
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true,
+        "source.organizeImports": true
+      },
+      "format_on_save": {
+        "external": {
+          "command": "prettier",
+          "arguments": ["--stdin-filepath", "{buffer_path}"]
+        }
+      }
+    },
+    "TSX": {
+      "format_on_save": {
+        "external": {
+          "command": "prettier",
+          "arguments": ["--stdin-filepath", "{buffer_path}"]
+        }
+      }
+    },
+    "Rust": {
+      "code_actions_on_format": {
+        "source.organizeImports": true
+      },
+      "format_on_save": {
+        "external": {
+          "command": "prettier",
+          "arguments": ["--stdin-filepath", "{buffer_path}"]
+        }
+      }
+    }
+  },
+  "tab_size": 2,
+  // Theme
+  "theme": "Xcode High Contrast Dark",
+  // Toolbar
+  "toolbar": {
+    "breadcrumbs": false
+  },
+  "ui_font_family": "PragmataPro",
+  "ui_font_features": 16
+}

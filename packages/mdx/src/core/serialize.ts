@@ -1,29 +1,29 @@
-import { compile } from '@mdx-js/mdx';
-import { getErrorMessage } from '@sotiesman/utils';
-import { VFile, type VFileCompatible } from 'vfile';
-import { matter } from 'vfile-matter';
+import { compile } from '@mdx-js/mdx'
+import { getErrorMessage } from '@sdnsdev/utils'
+import { VFile, type VFileCompatible } from 'vfile'
+import { matter } from 'vfile-matter'
 
-import { rehypePlugins, remarkPlugins } from './plugins';
+import { rehypePlugins, remarkPlugins } from './plugins'
 
 export type SerializeResult<T = Record<string, unknown>> = {
-	compiledSource: string;
-	frontmatter: T;
-};
+	compiledSource: string
+	frontmatter: T
+}
 
 export type SerializeOptions = {
-	rsc?: boolean;
-};
+	rsc?: boolean
+}
 
 export const serialize = async <T>(
 	source: VFileCompatible,
 	options: SerializeOptions = {}
 ): Promise<SerializeResult<T>> => {
-	const { rsc = false } = options;
-	const vfile = new VFile(source);
+	const { rsc = false } = options
+	const vfile = new VFile(source)
 
-	matter(vfile, { strip: true });
+	matter(vfile, { strip: true })
 
-	let compiledMdx: VFile;
+	let compiledMdx: VFile
 
 	try {
 		compiledMdx = await compile(vfile, {
@@ -32,13 +32,13 @@ export const serialize = async <T>(
 			development: process.env.NODE_ENV === 'development',
 			remarkPlugins,
 			rehypePlugins
-		});
+		})
 	} catch (error) {
-		throw new Error(`Error compiling MDX: ${getErrorMessage(error)}`);
+		throw new Error(`Error compiling MDX: ${getErrorMessage(error)}`)
 	}
 
 	return {
 		compiledSource: String(compiledMdx),
 		frontmatter: (vfile.data.matter ?? {}) as T
-	};
-};
+	}
+}

@@ -1,22 +1,28 @@
 {
   "$schema": "https://unpkg.com/knip@5/schema.json",
+  "ignore": ["**/tests/fixtures/**"],
   "ignoreBinaries": ["only-allow"],
+  "ignoreDependencies": ["prettier-plugin-*"],
   "workspaces": {
     ".": {
-      "project": ["**/*.{js,ts,tsx}"]
+      "commitlint": {
+        "config": ".commitlintrc.js"
+      },
+      "entry": ["vitest.shared.ts"]
     },
     "apps/web": {
-      "entry": ["./src/**/*.{js,ts,tsx}"],
-      "ignoreDependencies": ["sharp"]
+      "entry": ["./src/**/*.{js,jsx,ts,tsx}", "mdx.config.ts"],
+      "ignoreDependencies": ["sharp"],
+      "postcss": {
+        "config": "postcss.config.mjs"
+      }
     },
     "packages/eslint-config": {
-      "eslint": {
-        "config": "index.js"
-      }
+      "ignoreDependencies": ["@eslint/config-inspector"]
     },
     "packages/prettier-config": {
       "prettier": {
-        "config": "index.js"
+        "config": "../../prettier.config.js"
       }
     }
   }

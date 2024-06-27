@@ -1,28 +1,22 @@
 {
-  "name": "@sotiesman/tsconfig",
-  "version": "0.0.0",
-  "license": "EPL-2.0",
-  "author": "SadnessNetwork <me@sotiesman.tech> (https://github.com/SadnessNetwork/)",
-  "homepage": "https://github.com/SadnessNetwork/sotiesman-tech#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/SadnessNetwork/sotiesman-tech.git"
-  },
-  "bugs": {
-    "url": "https://github.com/SadnessNetwork/sotiesman-tech/issues"
-  },
-  "files": [
-    "base.json",
-    "nextjs.json",
-    "react-library.json"
-  ],
-  "peerDependencies": {
-    "typescript": "5.x"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,json,md,mdx}": "prettier --cache --write"
-  }
+	"name": "@sdnsdev/tsconfig",
+	"version": "0.0.1",
+	"license": "EPL-2.0",
+	"author": "sdnsdev <me@sotiesman.tech> (https://github.com/SadnessNetwork/)",
+	"type": "module",
+	"files": [
+		"base.json",
+		"nextjs.json",
+		"react-library.json"
+	],
+	"peerDependencies": {
+		"typescript": "5.x"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"lint-staged": {
+		"*.{cjs,mjs,js,jsx,cts,mts,ts,tsx,json}": "eslint --fix",
+		"**/*": "prettier --write --ignore-unknown"
+	}
 }

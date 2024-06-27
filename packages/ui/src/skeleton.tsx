@@ -1,4 +1,4 @@
-import { cn } from '@sotiesman/utils'
+import { cn } from '@sdnsdev/utils'
 import { forwardRef } from 'react'
 
 type SkeletonProps = React.HTMLAttributes<HTMLDivElement>
@@ -9,7 +9,7 @@ export const Skeleton = forwardRef<HTMLDivElement, SkeletonProps>(
 
 		return (
 			<div
-				className={cn('animate-pulse rounded-md bg-muted', className)}
+				className={cn('bg-muted animate-pulse rounded-md', className)}
 				ref={ref}
 				{...rest}
 			/>

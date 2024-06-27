@@ -1,11 +1,8 @@
-/**
- * Adapted from: https://github.com/fuma-nama/fumadocs/blob/cff6273b7d66377877d3d9d5ef6b6fd4ac20bac3/packages/ui/src/components/files.tsx
- */
 'use client'
 
-import { cn } from '@sotiesman/utils'
+import { cn } from '@sdnsdev/utils'
 import { cva } from 'class-variance-authority'
-import { FileIcon, FolderIcon, FolderOpenIcon } from 'lucide-react'
+import { FolderIcon, FolderOpenIcon } from 'lucide-react'
 import { useState } from 'react'
 
 import {
@@ -13,6 +10,7 @@ import {
 	CollapsibleContent,
 	CollapsibleTrigger
 } from './collapsible'
+import { getIconByFilename } from './utils/get-icon-by-filename'
 
 type FilesProps = React.ComponentPropsWithoutRef<'div'>
 type FileProps = {
@@ -25,7 +23,7 @@ type FolderProps = {
 } & React.ComponentPropsWithoutRef<'div'>
 
 const item = cva(
-	'flex flex-row items-center gap-2 rounded-md px-2 py-1.5 text-sm hover:bg-accent hover:text-accent-foreground'
+	'hover:bg-accent hover:text-accent-foreground flex flex-row items-center gap-2 rounded-md px-2 py-1.5 text-sm'
 )
 
 export const Files = (props: FilesProps) => {
@@ -33,7 +31,7 @@ export const Files = (props: FilesProps) => {
 
 	return (
 		<div
-			className={cn('not-prose rounded-md border bg-card p-2', className)}
+			className={cn('not-prose bg-card rounded-md border p-2', className)}
 			{...rest}
 		>
 			{children}
@@ -44,9 +42,11 @@ export const Files = (props: FilesProps) => {
 export const File = (props: FileProps) => {
 	const { name, className, ...rest } = props
 
+	const Icon = getIconByFilename(name)
+
 	return (
 		<div className={cn(item({ className }))} {...rest}>
-			<FileIcon className='size-4' />
+			<Icon className='size-4' />
 			{name}
 		</div>
 	)

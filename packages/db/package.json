@@ -1,8 +1,9 @@
 {
   "private": true,
-  "name": "@sotiesman/db",
+  "name": "@sdnsdev/db",
   "version": "0.0.0",
   "license": "EPL-2.0",
+  "type": "module",
   "main": "./src/index.ts",
   "scripts": {
     "clean": "rm -rf .turbo",
@@ -17,19 +18,19 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@libsql/client": "^0.6.0",
+    "@libsql/client": "^0.6.2",
     "@paralleldrive/cuid2": "^2.2.2",
-    "@sotiesman/env": "workspace:*",
-    "drizzle-orm": "^0.29.4"
+    "@sdnsdev/env": "workspace:*",
+      "drizzle-orm": "^0.31.2"
   },
   "devDependencies": {
-    "@sotiesman/eslint-config": "workspace:*",
-    "@sotiesman/tsconfig": "workspace:*",
-    "@types/node": "^20.11.20",
-    "drizzle-kit": "^0.21.1"
+    "@sdnsdev/eslint-config": "workspace:*",
+    "@sdnsdev/tsconfig": "workspace:*",
+    "@types/node": "^20.14.2",
+    "drizzle-kit": "^0.22.7"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": "eslint --fix",
-    "*.{js,jsx,ts,tsx,json,md,mdx}": "prettier --cache --write"
+    "*.{cjs,mjs,js,jsx,cts,mts,ts,tsx,json}": "eslint --fix",
+    "**/*": "prettier --write --ignore-unknown"
   }
 }

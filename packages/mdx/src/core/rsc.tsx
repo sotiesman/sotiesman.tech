@@ -6,40 +6,40 @@ import { serialize } from './serialize'
 import { type MDXComponents } from './types'
 
 export type MDXRemoteRSCProps = {
-  source: VFileCompatible
-  components?: MDXComponents
+	source: VFileCompatible
+	components?: MDXComponents
 }
 
 export const compileMDX = async ({
-  source,
-  components = {}
+	source,
+	components = {}
 }: MDXRemoteRSCProps) => {
-  const { compiledSource, frontmatter } = await serialize(source, {
-    rsc: true
-  })
+	const { compiledSource, frontmatter } = await serialize(source, {
+		rsc: true
+	})
 
-  const isDev = process.env.NODE_ENV === 'development'
+	const isDev = process.env.NODE_ENV === 'development'
 
-  const fullScope = Object.assign(
-    {
-      opts: isDev ? jsxDevRuntime : jsxRuntime
-    },
-    { frontmatter }
-  )
-  const keys = Object.keys(fullScope)
-  const values = Object.values(fullScope)
+	const fullScope = Object.assign(
+		{
+			opts: isDev ? jsxDevRuntime : jsxRuntime
+		},
+		{ frontmatter }
+	)
+	const keys = Object.keys(fullScope)
+	const values = Object.values(fullScope)
 
-  const hydrateFn = Reflect.construct(Function, [...keys, compiledSource])
+	const hydrateFn = Reflect.construct(Function, [...keys, compiledSource])
 
-  const Content: React.ElementType = hydrateFn.apply(hydrateFn, values).default
+	const Content: React.ElementType = hydrateFn.apply(hydrateFn, values).default
 
-  return {
-    content: <Content components={components} />,
-    frontmatter
-  }
+	return {
+		content: <Content components={components} />,
+		frontmatter
+	}
 }
 
 export const MDXRemoteRSC = async (props: MDXRemoteRSCProps) => {
-  const { content } = await compileMDX(props)
-  return content
+	const { content } = await compileMDX(props)
+	return content
 }

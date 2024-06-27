@@ -1,4 +1,4 @@
-import { cn } from '@sotiesman/utils'
+import { cn } from '@sdnsdev/utils'
 import { cva, type VariantProps } from 'class-variance-authority'
 import NextLink from 'next/link'
 import { forwardRef } from 'react'
@@ -6,8 +6,7 @@ import { forwardRef } from 'react'
 export const linkVariants = cva('', {
 	variants: {
 		variant: {
-			article: 'bg-article-link no-underline dark:bg-article-link-dark',
-			muted: 'text-muted-foreground transition-colors hover:text-foreground'
+			muted: 'text-muted-foreground hover:text-foreground transition-colors'
 		}
 	}
 })
@@ -18,11 +17,15 @@ type LinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> &
 export const Link = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
 	const { href, className, children, variant, ...rest } = props
 
-	if ((href as string).startsWith('/')) {
+	if (!href) {
+		throw new Error('Link must have an href')
+	}
+
+	if (href.startsWith('/')) {
 		return (
 			<NextLink
 				className={cn(linkVariants({ variant, className }))}
-				href={href as string}
+				href={href}
 				ref={ref}
 				{...rest}
 			>
@@ -31,7 +34,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
 		)
 	}
 
-	if ((href as string).startsWith('#')) {
+	if (href.startsWith('#')) {
 		return (
 			<a
 				className={cn(linkVariants({ variant, className }))}

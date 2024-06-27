@@ -9,38 +9,38 @@ import { type SerializeResult } from './serialize'
 import { type MDXComponents } from './types'
 
 export type MDXRemoteProps = SerializeResult & {
-  components?: MDXComponents
+	components?: MDXComponents
 }
 
 export const MDXRemote = ({
-  compiledSource,
-  frontmatter,
-  components = {}
+	compiledSource,
+	frontmatter,
+	components
 }: MDXRemoteProps) => {
-  const isDev = process.env.NODE_ENV === 'development'
+	const isDev = process.env.NODE_ENV === 'development'
 
-  const Content: React.ElementType = useMemo(() => {
-    const fullScope = Object.assign(
-      {
-        opts: {
-          MDXProvider,
-          useMDXComponents,
-          ...(isDev ? jsxDevRuntime : jsxRuntime)
-        }
-      },
-      { frontmatter }
-    )
-    const keys = Object.keys(fullScope)
-    const values = Object.values(fullScope)
+	const Content: React.ElementType = useMemo(() => {
+		const fullScope = Object.assign(
+			{
+				opts: {
+					MDXProvider,
+					useMDXComponents,
+					...(isDev ? jsxDevRuntime : jsxRuntime)
+				}
+			},
+			{ frontmatter }
+		)
+		const keys = Object.keys(fullScope)
+		const values = Object.values(fullScope)
 
-    const hydrateFn = Reflect.construct(Function, [...keys, compiledSource])
+		const hydrateFn = Reflect.construct(Function, [...keys, compiledSource])
 
-    return hydrateFn.apply(hydrateFn, values).default as React.ElementType
-  }, [compiledSource, frontmatter, isDev])
+		return hydrateFn.apply(hydrateFn, values).default as React.ElementType
+	}, [compiledSource, frontmatter, isDev])
 
-  return (
-    <MDXProvider components={components}>
-      <Content />
-    </MDXProvider>
-  )
+	return (
+		<MDXProvider components={components}>
+			<Content />
+		</MDXProvider>
+	)
 }

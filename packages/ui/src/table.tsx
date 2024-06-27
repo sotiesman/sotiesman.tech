@@ -1,4 +1,4 @@
-import { cn } from '@sotiesman/utils'
+import { cn } from '@sdnsdev/utils'
 import { forwardRef } from 'react'
 
 export const Table = forwardRef<

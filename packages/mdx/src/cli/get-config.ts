@@ -4,16 +4,16 @@ import type { MakeSourceOptions } from '@/source-files/make-source'
 
 import { LOG_PREFIX } from './constants'
 
-export const getConfig = async () => {
-  const explorer = cosmiconfig('mdx', {
-    searchPlaces: ['mdx.config.ts']
-  })
+export const getConfig = async (cwd: string) => {
+	const explorer = cosmiconfig('mdx', {
+		searchPlaces: ['mdx.config.ts']
+	})
 
-  const configResult = await explorer.search(process.cwd())
+	const configResult = await explorer.search(cwd)
 
-  if (!configResult) {
-    throw new Error(`${LOG_PREFIX}No configuration found`)
-  }
+	if (!configResult) {
+		throw new Error(`${LOG_PREFIX}No configuration found`)
+	}
 
-  return configResult.config as MakeSourceOptions
+	return configResult.config as MakeSourceOptions
 }

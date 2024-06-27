@@ -7,28 +7,28 @@ import { type TOC } from '../../types'
 const slugger = new Slugger()
 
 export const remarkHeading: Plugin = () => {
-  return (tree, file) => {
-    const toc: TOC[] = []
-    slugger.reset()
+	return (tree, file) => {
+		const toc: TOC[] = []
+		slugger.reset()
 
-    visit(tree, 'heading', (node: any) => {
-      node.data ??= {}
-      node.data.hProperties ??= {}
+		visit(tree, 'heading', (node: any) => {
+			node.data ??= {}
+			node.data.hProperties ??= {}
 
-      const text = node.children[0].value
-      const id = slugger.slug(text)
+			const text = node.children[0].value
+			const id = slugger.slug(text)
 
-      node.data.hProperties.id = id
+			node.data.hProperties.id = id
 
-      toc.push({
-        title: text,
-        url: id,
-        depth: node.depth
-      })
+			toc.push({
+				title: text,
+				url: id,
+				depth: node.depth
+			})
 
-      return 'skip'
-    })
+			return 'skip'
+		})
 
-    file.data.toc = toc
-  }
+		file.data.toc = toc
+	}
 }

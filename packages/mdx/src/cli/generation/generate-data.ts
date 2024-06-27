@@ -12,38 +12,38 @@ import { generateIndexMjs } from './generate-index-mjs'
 import { generateTypesDts } from './generate-types-d-ts'
 
 export const generateData = async (
-  defs: DocumentType[],
-  contentDirPath: string
+	defs: DocumentType[],
+	contentDirPath: string
 ) => {
-  for (const def of defs) {
-    const entries = await getEntries(def.filePathPattern, contentDirPath)
+	for (const def of defs) {
+		const entries = await getEntries(def.filePathPattern, contentDirPath)
 
-    const defFolderPath = `${BASE_FOLDER_PATH}/${def.name}`
+		const defFolderPath = `${BASE_FOLDER_PATH}/${def.name}`
 
-    const indexJson = []
+		const indexJson = []
 
-    await fs.mkdir(defFolderPath, { recursive: true })
+		await fs.mkdir(defFolderPath, { recursive: true })
 
-    for (const entry of entries) {
-      const fullPath = path.join(contentDirPath, entry)
-      const fileName = path.basename(entry, '.mdx')
-      const fileContent = await fs.readFile(fullPath, 'utf8')
+		for (const entry of entries) {
+			const fullPath = path.join(contentDirPath, entry)
+			const fileName = path.basename(entry, '.mdx')
+			const fileContent = await fs.readFile(fullPath, 'utf8')
 
-      const parsedContent = matter(fileContent)
+			const parsedContent = matter(fileContent)
 
-      const content = {
-        ...parsedContent.data,
-        body: parsedContent.content,
-        slug: fileName
-      }
+			const content = {
+				...parsedContent.data,
+				body: parsedContent.content,
+				slug: fileName
+			}
 
-      indexJson.push(content)
-    }
+			indexJson.push(content)
+		}
 
-    await writeJSON(`${defFolderPath}/index.json`, indexJson)
-  }
+		await writeJSON(`${defFolderPath}/index.json`, indexJson)
+	}
 
-  await generateIndexDts(defs)
-  await generateTypesDts(defs)
-  await generateIndexMjs(defs)
+	await generateIndexDts(defs)
+	await generateTypesDts(defs)
+	await generateIndexMjs(defs)
 }

@@ -7,8 +7,8 @@ import { remarkCode } from './remark/remark-code'
 import { remarkHeading } from './remark/remark-heading'
 
 export const remarkPlugins: PluggableList = [
-  remarkGfm,
-  remarkHeading,
-  remarkCode
+	remarkGfm,
+	remarkHeading,
+	remarkCode
 ]
 export const rehypePlugins: PluggableList = [rehypeCode, rehypeInlineCode]

@@ -1,7 +1,7 @@
 'use client'
 
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu'
-import { cn } from '@sotiesman/utils'
+import { cn } from '@sdnsdev/utils'
 import { CheckIcon, ChevronRightIcon, DotIcon } from 'lucide-react'
 import { forwardRef } from 'react'
 
@@ -48,7 +48,7 @@ export const DropdownMenuSubContent = forwardRef<
 		<DropdownMenuPrimitive.SubContent
 			ref={ref}
 			className={cn(
-				'z-50 min-w-32 overflow-hidden rounded-md border bg-accent p-1 text-popover-foreground shadow-lg',
+				'bg-popover text-popover-foreground z-50 min-w-32 overflow-hidden rounded-md border p-1 shadow-lg',
 				'data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95',
 				'data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95',
 				'data-[side=top]:slide-in-from-bottom-2',
@@ -74,7 +74,7 @@ export const DropdownMenuContent = forwardRef<
 				ref={ref}
 				sideOffset={sideOffset}
 				className={cn(
-					'z-50 min-w-32 overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md',
+					'bg-popover text-popover-foreground z-50 min-w-32 overflow-hidden rounded-md border p-1 shadow-md',
 					'data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95',
 					'data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95',
 					'data-[side=top]:slide-in-from-bottom-2',
@@ -159,7 +159,7 @@ export const DropdownMenuRadioItem = forwardRef<
 		>
 			<span className='absolute left-2 flex size-3.5 items-center justify-center'>
 				<DropdownMenuPrimitive.ItemIndicator>
-					<DotIcon className='size-4' />
+					<DotIcon className='size-9' />
 				</DropdownMenuPrimitive.ItemIndicator>
 			</span>
 			{children}
@@ -197,7 +197,7 @@ export const DropdownMenuSeparator = forwardRef<
 	return (
 		<DropdownMenuPrimitive.Separator
 			ref={ref}
-			className={cn('-mx-1 my-1 h-px bg-muted', className)}
+			className={cn('bg-muted -mx-1 my-1 h-px', className)}
 			{...rest}
 		/>
 	)

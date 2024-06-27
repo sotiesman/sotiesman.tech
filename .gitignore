@@ -1,20 +1,16 @@
 # Dependencies
-node_modules
-.pnp
-.pnp.js
+node_modules/
+.pnp/
+.pnp.*
 
 # Local env files
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env*
 
 # Turbo
-.turbo
+.turbo/
 
 # Vercel
-.vercel
+.vercel/
 
 # Debug
 npm-debug.log*
@@ -25,13 +21,13 @@ yarn-error.log*
 # Misc
 .DS_Store
 *.pem
-__*
 
 # Build outputs
 .next/
 out/
-build
-dist
+build/
+dist/
+.eslint-config-inspector/
 
 # Database
 packages/db/src/migrations/*
@@ -40,4 +36,13 @@ sotiesman-tech.db-shm
 sotiesman-tech.db-wal
 
 # MDX
-.mdx
+.mdx/
+
+# Testing
+playwright-report/
+test-results/
+coverage/
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts

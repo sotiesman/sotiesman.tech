@@ -1,8 +1,9 @@
 {
   "private": true,
-  "name": "@sotiesman/env",
+  "name": "@sdnsdev/env",
   "version": "0.0.0",
   "license": "EPL-2.0",
+  "type": "module",
   "main": "./src/index.ts",
   "scripts": {
     "clean": "rm -rf .turbo",
@@ -11,15 +12,15 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@t3-oss/env-nextjs": "^0.9.2",
-    "zod": "^3.22.4"
+    "@t3-oss/env-nextjs": "^0.10.1",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@sotiesman/eslint-config": "workspace:*",
-    "@sotiesman/tsconfig": "workspace:*"
+    "@sdnsdev/eslint-config": "workspace:*",
+    "@sdnsdev/tsconfig": "workspace:*"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": "eslint --fix",
-    "*.{js,jsx,ts,tsx,json,md,mdx}": "prettier --cache --write"
+    "*.{cjs,mjs,js,jsx,cts,mts,ts,tsx,json}": "eslint --fix",
+    "**/*": "prettier --write --ignore-unknown"
   }
 }

@@ -1,9 +1,6 @@
-/**
- * Adapted from: https://github.com/delbaoliveira/website/blob/59e6f181ad75751342ceaa8931db4cbcef86b018/ui/BlurImage.tsx
- */
 'use client'
 
-import { cn } from '@sotiesman/utils'
+import { cn } from '@sdnsdev/utils'
 import NextImage from 'next/image'
 import { forwardRef, useState } from 'react'
 
@@ -15,7 +12,7 @@ type ImageProps = {
 export const BlurImage = forwardRef<HTMLDivElement, ImageProps>(
 	(props, ref) => {
 		const { alt, src, className, imageClassName, lazy = true, ...rest } = props
-		const [isLoading, setLoading] = useState(true)
+		const [isLoading, setIsLoading] = useState(true)
 
 		return (
 			<div
@@ -39,7 +36,9 @@ export const BlurImage = forwardRef<HTMLDivElement, ImageProps>(
 					loading={lazy ? 'lazy' : undefined}
 					priority={!lazy}
 					quality={100}
-					onLoad={() => setLoading(false)}
+					onLoadingComplete={() => {
+						setIsLoading(false)
+					}}
 					{...rest}
 				/>
 			</div>
