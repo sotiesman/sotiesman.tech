@@ -1,15 +1,20 @@
-import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from '@/lib/constants'
+import { flags } from '@sdnsdev/env'
 import { cn } from '@sdnsdev/utils'
 import { GeistMono } from 'geist/font/mono'
 import { GeistSans } from 'geist/font/sans'
-import { Metadata, Viewport } from 'next'
+import type { Metadata, Viewport } from 'next'
 import localFont from 'next/font/local'
 import Image from 'next/image'
-import Providers from './providers'
 
+import Analytics from '@/components/analytics'
+import Hello from '@/components/hello'
+import Footer from '@/components/layout/footer'
 import Header from '@/components/layout/header'
-import WassupBro from '@/components/wassup'
+import SignInModal from '@/components/sign-in-modal'
+import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from '@/lib/constants'
 import '@/styles/globals.css'
+
+import Providers from './providers'
 
 type LayoutProps = {
   children: React.ReactNode
@@ -41,15 +46,7 @@ export const metadata: Metadata = {
     site: '@sdnsdev',
     siteId: '1436386523184783369',
     creator: '@sdnsdev',
-    creatorId: '1436386523184783369',
-    images: [
-      {
-        url: '/images/og.png',
-        width: 1200,
-        height: 630,
-        alt: SITE_DESCRIPTION
-      }
-    ]
+    creatorId: '1436386523184783369'
   },
   keywords: ['sdnsdev', 'SadnessNetwork', 'Sadness', 'Rust', 'Actix', 'Next.js', 'React', 'TypeScript', 'Node.js'],
   creator: 'sdnsdev',
@@ -59,16 +56,7 @@ export const metadata: Metadata = {
     title: SITE_TITLE,
     siteName: SITE_TITLE,
     description: SITE_DESCRIPTION,
-    locale: 'en-US',
-    images: [
-      {
-        url: '/images/og.png',
-        width: 1200,
-        height: 630,
-        alt: SITE_DESCRIPTION,
-        type: 'image/png'
-      }
-    ]
+    locale: 'en-US'
   },
   icons: {
     icon: '/favicon/favicon.svg',
@@ -108,17 +96,27 @@ const calcom = localFont({
   variable: '--font-title'
 })
 
-const Layout = ({children}:LayoutProps) => {
-	return (
-		<html lang='en-US' className={cn(GeistSans.variable, GeistMono.variable, calcom.variable, 'scoll-smooth')} suppressHydrationWarning>
+const Layout = (props: LayoutProps) => {
+  const { children } = props
+
+  return (
+    <html
+      lang='en-US'
+      className={cn(GeistSans.variable, GeistMono.variable, calcom.variable, 'scroll-smooth')}
+      suppressHydrationWarning
+    >
       <body>
         <Providers>
-					<WassupBro />
-					<Header />
+          <Hello />
+          <Header />
           <main id='skip-nav' className='mx-auto mb-16 max-w-5xl px-5 py-24 sm:px-8'>
             {children}
           </main>
-					<Image
+
+          <Footer />
+          {flags.analytics ? <Analytics /> : null}
+          <SignInModal />
+          <Image
             width={1512}
             height={550}
             className='absolute left-1/2 top-0 -z-10 -translate-x-1/2'
@@ -138,8 +136,8 @@ const Layout = ({children}:LayoutProps) => {
           />
         </Providers>
       </body>
-		</html>
-	)
+    </html>
+  )
 }
 
 export default Layout

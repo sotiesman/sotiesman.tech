@@ -1,7 +1,12 @@
-// import { allBlogPosts, allProjects } from 'mdx/generated'
+// import { allBlogPosts } from 'mdx/generated'
 import type { Metadata } from 'next'
 
-import { SITE_URL } from '@/lib/constants'
+import AboutMe from '@/components/home/about-me'
+import Hero from '@/components/home/hero'
+// import LatestArticles from '@/components/home/latest-articles'
+// import SelectedProjects from '@/components/home/selected-projects'
+import { DISCORD_ID, SITE_URL } from '@/lib/constants'
+import { getDiscordAvatar } from '@/utils/get-discord-avatar'
 
 export const metadata: Metadata = {
   alternates: {
@@ -9,7 +14,7 @@ export const metadata: Metadata = {
   }
 }
 
-const Page = () => {
+const Page = async () => {
   // const posts = allBlogPosts
   // const latestPosts = posts
   //   .sort((a, b) => {
@@ -19,9 +24,14 @@ const Page = () => {
 
   // const projects = allProjects
 
+	const avatar = await getDiscordAvatar(DISCORD_ID)
+
   return (
     <>
-     Kogda nado byde, dopishy a tak Chill guys <br /> <br /><br /><br />Made with ❤️ by sdnsdev AKA Sadness
+      <Hero basicAvatar={avatar} />
+      {/* <SelectedProjects projects={projects} /> */}
+      <AboutMe />
+      {/* <LatestArticles posts={latestPosts} /> */}
     </>
   )
 }

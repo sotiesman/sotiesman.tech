@@ -4,7 +4,10 @@ node_modules/
 .pnp.*
 
 # Local env files
-.env*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
 # Turbo
 .turbo/
@@ -31,9 +34,9 @@ dist/
 
 # Database
 packages/db/src/migrations/*
-sotiesman-tech.db
-sotiesman-tech.db-shm
-sotiesman-tech.db-wal
+*.db
+*.db-shm
+*.db-wal
 
 # MDX
 .mdx/

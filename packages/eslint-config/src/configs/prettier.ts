@@ -4,7 +4,7 @@ import { prettierConfig, prettierPlugin } from '../plugins'
 
 export const prettier: Linter.FlatConfig[] = [
 	{
-		name: 'tszhong0411:prettier',
+		name: 'sdnsdev:prettier',
 		plugins: {
 			prettier: prettierPlugin
 		},

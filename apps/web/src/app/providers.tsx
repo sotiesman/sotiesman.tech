@@ -4,7 +4,7 @@ import { Toaster, TooltipProvider, type ToasterProps } from '@sdnsdev/ui'
 import { SessionProvider } from 'next-auth/react'
 import { ThemeProvider, useTheme } from 'next-themes'
 
-// import { TRPCReactProvider } from '@/trpc/react'
+import { TRPCReactProvider } from '@/trpc/react'
 
 type ProvidesProps = {
   children: React.ReactNode
@@ -15,7 +15,7 @@ const Providers = (props: ProvidesProps) => {
   const { theme = 'system' } = useTheme()
 
   return (
-    // <TRPCReactProvider>
+    <TRPCReactProvider>
       <ThemeProvider
         attribute='class'
         defaultTheme='system'
@@ -37,7 +37,7 @@ const Providers = (props: ProvidesProps) => {
           </TooltipProvider>
         </SessionProvider>
       </ThemeProvider>
-    // </TRPCReactProvider>
+    </TRPCReactProvider>
   )
 }
 

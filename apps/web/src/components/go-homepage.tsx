@@ -2,10 +2,12 @@
 
 import { buttonVariants, Link } from '@sdnsdev/ui'
 
-const Gohomepage = () => {
-	return (
-		<Link href="/" className={buttonVariants()}>Go to homepage</Link>
-	)
+const GoHomepage = () => {
+  return (
+    <Link href='/' className={buttonVariants()}>
+      Go homepage
+    </Link>
+  )
 }
 
-export default Gohomepage
+export default GoHomepage
