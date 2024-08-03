@@ -1,76 +1,31 @@
 {
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-git"
-    }
-  },
-  "devDependencies": {
-    "@changesets/changelog-github": "^0.5.0",
-    "@changesets/cli": "^2.27.5",
-    "@commitlint/cli": "^19.3.0",
-    "@commitlint/config-conventional": "^19.2.2",
-    "@playwright/test": "^1.44.1",
-    "@sdnsdev/eslint-config": "workspace:*",
-    "@sdnsdev/prettier-config": "workspace:*",
-    "@sdnsdev/tsconfig": "workspace:*",
-    "@types/node": "^20.14.2",
-    "@vitest/coverage-v8": "^1.6.0",
-    "@vitest/ui": "^1.6.0",
-    "commitizen": "^4.3.0",
-    "concurrently": "^8.2.2",
-    "cz-git": "^1.9.3",
-    "dotenv-cli": "^7.4.2",
-    "eslint": "^8.57.0",
-    "husky": "^9.0.11",
-    "jsdom": "^24.1.0",
-    "knip": "^5.18.2",
-    "lint-staged": "^15.2.6",
-    "prettier": "^3.3.2",
-    "tsup": "^8.1.0",
-    "tsx": "^4.15.2",
-    "turbo": "^2.0.3",
-    "typescript": "^5.4.5",
-    "vitest": "^1.6.0"
-  },
-  "license": "EPL-2.0",
-  "lint-staged": {
-    "*.{cjs,mjs,js,jsx,cts,mts,ts,tsx,json}": "eslint --fix",
-    "**/*": "prettier --write --ignore-unknown"
-  },
-  "name": "web-monorepo",
-  "packageManager": "pnpm@8.9.0",
-  "prettier": "@sdnsdev/prettier-config",
-  "private": true,
-  "scripts": {
-    "build": "turbo build",
-    "build:packages": "turbo build --filter=./packages/*",
-    "check": "turbo lint && turbo type-check && pnpm format:check && pnpm check:spelling && pnpm check:knip",
-    "check:knip": "dotenv -e .env.local -- knip",
-    "check:npm": "pnpm dlx npm-check-updates --deep --interactive --format group",
-    "clean": "turbo clean && rm -rf .turbo coverage",
-    "commit": "git-cz",
-    "db:check": "turbo db:check",
-    "db:generate": "turbo db:generate",
-    "db:migrate": "turbo db:migrate",
-    "db:push": "turbo db:push",
-    "db:seed": "turbo db:seed",
-    "db:studio": "turbo db:studio",
-    "dev": "turbo dev",
-    "dev:packages": "turbo dev --filter=./packages/*",
-    "format:check": "prettier --cache --check --ignore-path .gitignore --ignore-path .prettierignore .",
-    "format:write": "prettier --cache --write --list-different --ignore-path .gitignore --ignore-path .prettierignore .",
-    "preinstall": "npx only-allow pnpm",
-    "lint": "turbo lint",
-    "lint:fix": "turbo lint:fix && pnpm format:write",
-    "prepare": "husky && pnpm build:packages",
-    "release": "changeset publish",
-    "test:e2e": "turbo test:e2e",
-    "test:e2e:ui": "turbo test:e2e:ui",
-    "test:unit": "vitest run",
-    "test:unit:coverage": "vitest --coverage --ui",
-    "test:unit:ui": "vitest --ui",
-    "type-check": "turbo type-check",
-    "version": "changeset version"
-  },
-  "type": "module"
+	"name": "@sotiesman/web",
+	"type": "module",
+	"version": "0.0.1",
+	"private": true,
+	"license": "EPL-2.0",
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro check && astro build",
+		"preview": "astro preview",
+		"astro": "astro",
+		"fmt": "dprint fmt"
+	},
+	"dependencies": {
+		"@astrojs/check": "^0.5.10",
+		"@astrojs/mdx": "^2.3.1",
+		"@astrojs/sitemap": "^3.1.6",
+		"@astrojs/svelte": "^5.7.0",
+		"astro": "^4.12.2",
+		"astro-robots-txt": "^1.0.0",
+		"buffer": "^6.0.3",
+		"normalize.css": "^8.0.1",
+		"sass": "^1.77.8",
+		"svelte": "^4.2.18",
+		"typescript": "^5.5.4"
+	},
+	"devDependencies": {
+		"@playform/compress": "^0.1.0"
+	}
 }

@@ -1,0 +1,33 @@
+<span data-pronouns>/soʊtiɛsmæn/</span>
+
+<script>
+	const pronouns: HTMLElement | null =
+		document.querySelector("[data-pronouns]");
+
+	pronouns?.addEventListener(
+		"click",
+		() =>
+			(pronouns.innerText =
+				pronouns?.innerText === "/soʊtiɛsmæn/" ? "(he/him)" : "/soʊtiɛsmæn/")
+	);
+</script>
+
+<style lang="scss">
+	@use "@styles/_thorns.scss";
+
+	span {
+		color: thorns.$fg1;
+		font-size: 1rem;
+		font-weight: 400;
+		cursor: pointer;
+
+		&:hover,
+		&focus {
+			opacity: 0.5;
+
+			transition-property: opacity;
+			transition-duration: 0.15s;
+			transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+		}
+	}
+</style>
