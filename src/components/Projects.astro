@@ -8,7 +8,7 @@ import { projects } from "@data/projects/index.json";
 			return (
 				<div class="project">
 					<a href={project.source} target="_blank">
-						{`@${project.owner}`}/<strong>${project.name}</strong>
+						{`@${project.owner}`}/<strong>{project.name}</strong>
 					</a>
 					{project.website && (
 						<a href={project.website} target="_blank" class="web">
