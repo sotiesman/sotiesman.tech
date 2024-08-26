@@ -5,9 +5,9 @@
 </h1>
 
 <p align="center">
-  <img alt="" src="https://img.shields.io/github/languages/top/sotiesman/sotiesman-tech?style=for-the-badge&labelColor=000">
-  <a aria-label="License" href="https://github.com/sotiesman/sotiesman-tech/blob/main/LICENSE">
-    <img alt="" src="https://img.shields.io/github/license/sotiesman/sotiesman-tech?style=for-the-badge&labelColor=000">
+  <img alt="" src="https://img.shields.io/github/languages/top/sotiesman/sotiesman.tech?style=for-the-badge&labelColor=000">
+  <a aria-label="License" href="https://github.com/sotiesman/sotiesman.tech/blob/main/LICENSE">
+    <img alt="" src="https://img.shields.io/github/license/sotiesman/sotiesman.tech?style=for-the-badge&labelColor=000">
   </a>
 </p>
 
