@@ -19,7 +19,7 @@ import Pronouns from "@components/Pronouns.astro";
   <section>
     <h2 id="links">links</h2>
     <p>Hurry up and catch me!</p>
-    <ul>
+    <ul id="amo">
       <li>
         Discord: <a
           href="https://discord.com/users/536479598469316639"
@@ -65,7 +65,7 @@ import Pronouns from "@components/Pronouns.astro";
   </section>
 </Layout>
 
-<style>
+<style lang="scss">
   @use "sass:color";
   @use "@styles/_thorns.scss";
 
@@ -73,6 +73,7 @@ import Pronouns from "@components/Pronouns.astro";
     li::marker {
       content: "# ";
       color: thorns.$red;
+      color: thorns.$accent-shh-green;
     }
   }
 </style>
