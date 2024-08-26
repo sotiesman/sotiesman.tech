@@ -2,43 +2,43 @@
 @use "_thorns.scss";
 
 @font-face {
-	font-family: "Iosevka";
-	src: url("/fonts/iosevka.woff2") format("woff2"), url("/font/iosevka.woff2");
+  font-family: "Iosevka";
+  src: url("/fonts/iosevka.woff2") format("woff2"), url("/font/iosevka.woff2");
 }
 
 @font-face {
-	font-family: "Nunito";
-	src: url("/fonts/nunito.woff2") format("woff2"), url("/font/nunito.woff2");
+  font-family: "Nunito";
+  src: url("/fonts/nunito.woff2") format("woff2"), url("/font/nunito.woff2");
 }
 
 :root {
-	font-family: "Nunito", "Iosevka";
-	font-size: 1.05rem;
+  font-family: "Nunito", "Iosevka";
+  font-size: 1.05rem;
 }
 
 html {
-	background-image: url("/assets/flowers.webp");
+  background-image: url("/assets/flowers.webp");
 }
 
 main {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-	color: thorns.$fg0;
-	background-color: color.adjust(thorns.$bg0, $alpha: -0.02);
-	border: thorns.$accent-shh-green 2px solid;
-	/* box-shadow: 6px 6px 4px color.adjust(thorns.$bg0, $alpha: -0.3); */
+  color: thorns.$fg0;
+  background-color: color.adjust(thorns.$bg0, $alpha: -0.02);
+  border: thorns.$accent-shh-green 2px solid;
+  /* box-shadow: 6px 6px 4px color.adjust(thorns.$bg0, $alpha: -0.3); */
 
-	padding: 0.6rem 2rem;
-	margin: 0 20px 20px 20px;
-	min-height: calc(
-		100vh - 20px * 2 - 2px * 2 - 0.6rem * 2 - 2rem - 10px
-	); // 100% - margin - border - padding - header height - header margin
+  padding: 0.6rem 2rem;
+  margin: 0 20px 20px 20px;
+  min-height: calc(
+    100vh - 20px * 2 - 2px * 2 - 0.6rem * 2 - 2rem - 10px
+  ); // 100% - margin - border - padding - header height - header margin
 
-	::selection {
-		background-color: thorns.$accent-shh-green;
-		color: thorns.$bg0;
-	}
+  ::selection {
+    background-color: thorns.$accent-shh-green;
+    color: thorns.$bg0;
+  }
 }
 
 h1,
@@ -47,48 +47,48 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: "Iosevka";
+  font-family: "Iosevka";
 }
 
 h1 {
-	color: thorns.$accent-green;
+  color: thorns.$accent-green;
 }
 
 h2 {
-	color: thorns.$accent-shh-green;
+  color: thorns.$accent-shh-green;
 }
 
 h3 {
-	color: thorns.$cyan;
+  color: thorns.$cyan;
 }
 
 h4 {
-	color: thorns.$green;
+  color: thorns.$green;
 }
 
 a {
-	color: thorns.$accent-green;
-	text-decoration: none;
-	font-family: "Iosevka";
+  color: thorns.$accent-green;
+  text-decoration: none;
+  font-family: "Iosevka";
 
-	transition-property: opacity, text-decoration;
-	transition-duration: 0.15s;
-	transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  transition-property: opacity, text-decoration;
+  transition-duration: 0.15s;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 
-	&:hover,
-	&:focus {
-		text-decoration: underline;
-		opacity: 0.5;
-	}
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+    opacity: 0.5;
+  }
 }
 
 ul {
-	padding-left: 2rem;
-	line-height: 1.25rem;
+  padding-left: 2rem;
+  line-height: 1.25rem;
 
-	li::marker {
-		// content: "♡ ";
-		// color: thorns.$red;
-		color: thorns.$accent-shh-green;
-	}
+  li::marker {
+    content: "# ";
+    color: thorns.$red;
+    color: thorns.$accent-shh-green;
+  }
 }
