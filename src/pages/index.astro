@@ -7,61 +7,73 @@ import Pronouns from "@components/Pronouns.astro";
 ---
 
 <Layout>
-	<section>
-		<h1 id="intro">∑ sotiesman <Pronouns /></h1>
-		<p>
-			Hi, i'm Nazar aka Sotiesman! I'm a self-taught software and backend
-			developer with a passion for open source software. How odd but my ISFP
-			personality type.....
-		</p>
-	</section>
+  <section>
+    <h1 id="intro">∑ sotiesman <Pronouns /></h1>
+    <p>
+      Hi, i'm Nazar aka Sotiesman! I'm a self-taught software and backend
+      developer with a passion for open source software. How odd but my ISFP
+      personality type.....
+    </p>
+  </section>
 
-	<section>
-		<h2 id="links">links</h2>
-		<p>Where to catch a wild fawn!</p>
-		<ul>
-			<li>
-				Discord: <a
-					href="https://discord.com/users/536479598469316639"
-					target="_blank">@invok</a
-				>
-			</li>
-			<li>
-				Telegram: <a href="https://t.me/sotiesman" target="_blank">@sotiesman</a
-				>
-			</li>
-			<li>
-				DotaBuff: <a
-					href="https://en.dotabuff.com/players/1457232266"
-					target="_blank">kaelthas baby</a
-				>
-			</li>
-			<li>
-				Github: <a href="https://github.com/sotiesman" target="_blank"
-					>@sotiesman</a
-				>
-			</li>
-			<li>
-				Fav. Playlist: <a
-					href="https://open.spotify.com/playlist/1GDOReCzLPLqTOazv8eVhC?si=0911b9d6b8d243c9"
-					target="_blank">just: ohhhh</a
-				>
-			</li>
-		</ul>
-	</section>
+  <section>
+    <h2 id="links">links</h2>
+    <p>Where to catch a wild fawn!</p>
+    <ul id="action">
+      <li>
+        Discord: <a
+          href="https://discord.com/users/536479598469316639"
+          target="_blank">@invok</a
+        >
+      </li>
+      <li>
+        Telegram: <a href="https://t.me/sotiesman" target="_blank">@sotiesman</a
+        >
+      </li>
+      <li>
+        DotaBuff: <a
+          href="https://en.dotabuff.com/players/1457232266"
+          target="_blank">kaelthas baby</a
+        >
+      </li>
+      <li>
+        Github: <a href="https://github.com/sotiesman" target="_blank"
+          >@sotiesman</a
+        >
+      </li>
+      <li>
+        Fav. Playlist: <a
+          href="https://open.spotify.com/playlist/1GDOReCzLPLqTOazv8eVhC?si=0911b9d6b8d243c9"
+          target="_blank">just: ohhhh</a
+        >
+      </li>
+    </ul>
+  </section>
 
-	<section>
-		<h2 id="projects">projects</h2>
-		<p>
-			My personal projects are scattered all over gitlab and github. Sometimes i
-			like to contribute to other people's projects too!<br />
-			I love writing tiny pretty programs and re-inventing the wheel o.O
-		</p>
-		<Projects />
-	</section>
+  <section>
+    <h2 id="projects">projects</h2>
+    <p>
+      My personal projects are scattered all over gitlab and github. Sometimes i
+      like to contribute to other people's projects too!<br />
+      I love writing tiny pretty programs and re-inventing the wheel o.O
+    </p>
+    <Projects />
+  </section>
 
-	<section>
-		<h2 id="friends">friends</h2>
-		<Friends />
-	</section>
+  <section>
+    <h2 id="friends">friends</h2>
+    <Friends />
+  </section>
 </Layout>
+
+<style>
+  @use "sass:color";
+  @use "@styles/_thorns.scss";
+
+  ul {
+    li::marker {
+      content: "# ";
+      color: thorns.$red;
+    }
+  }
+</style>

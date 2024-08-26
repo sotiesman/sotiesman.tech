@@ -87,8 +87,6 @@ ul {
   line-height: 1.25rem;
 
   li::marker {
-    content: "# ";
-    color: thorns.$red;
     color: thorns.$accent-shh-green;
   }
 }
